@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Consultation — Rising Tide Digital</title>
+  <meta name="description" content="Schedule a free 30-minute consultation with Rising Tide Digital LLC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    .booking-hero {
+      background: var(--navy);
+      padding: 64px 0 56px;
+    }
+    .booking-hero h1 { color: var(--white); margin-bottom: 12px; }
+    .booking-hero p { color: rgba(255,255,255,0.7); max-width: 520px; }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 56px;
+      align-items: start;
+      padding: 64px 0;
+    }
+
+    .booking-info h3 { font-size: 1.1rem; margin-bottom: 8px; }
+
+    .booking-info-item {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+      padding: 18px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+    }
+
+    .booking-info-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    .booking-info-item h4 { font-size: 0.85rem; font-family: var(--font-body); color: var(--navy); margin-bottom: 3px; }
+    .booking-info-item p { font-size: 0.85rem; margin: 0; }
+
+    .slot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .slot-btn {
+      padding: 10px 8px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius);
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-align: center;
+    }
+
+    .slot-btn:hover { border-color: var(--navy); color: var(--navy); background: var(--gray-50); }
+    .slot-btn.selected { background: var(--navy); border-color: var(--navy); color: var(--white); font-weight: 600; }
+
+    .slot-loading { font-size: 0.875rem; color: var(--gray-400); padding: 12px 0; display: none; }
+
+    .slot-container { display: none; }
+
+    /* Confirmation screen */
+    .booking-confirm {
+      display: none;
+      text-align: center;
+      padding: 48px 32px;
+    }
+
+    .confirm-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 24px;
+    }
+
+    .confirm-details {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .confirm-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: 0.9rem;
+    }
+
+    .confirm-row:last-child { border-bottom: none; }
+    .confirm-row span:first-child { color: var(--gray-400); }
+    .confirm-row strong { color: var(--navy); }
+
+    @media (max-width: 768px) {
+      .booking-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="/index.html" class="nav-logo">
+        <div class="nav-logo-img">RT</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Rising Tide Digital</span>
+          <span class="nav-logo-tagline">Built for the coast. Designed to grow.</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/store.html">Store</a></li>
+        <li><a href="/booking.html">Book a Call</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/login.html" class="btn btn-outline btn-sm" id="nav-login">Login</a>
+        <a href="/dashboard.html" class="btn btn-primary btn-sm" id="nav-dash" style="display:none">Dashboard</a>
+        <button class="btn btn-outline btn-sm logout-btn" id="nav-logout" style="display:none">Logout</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/store.html">Store</a>
+    <a href="/booking.html">Book a Call</a>
+    <a href="/contact.html">Contact</a>
+    <div class="mobile-nav-actions">
+      <a href="/login.html" class="btn btn-outline btn-sm" id="mobile-login">Login</a>
+      <a href="/dashboard.html" class="btn btn-primary btn-sm" id="mobile-dash" style="display:none">Dashboard</a>
+      <button class="btn btn-outline btn-sm logout-btn" id="mobile-logout" style="display:none">Logout</button>
+    </div>
+  </div>
+
+  <div class="booking-hero">
+    <div class="container">
+      <span class="section-label">Free Consultation</span>
+      <h1>Book a Strategy Call</h1>
+      <p>Pick a date and time that works for you. We'll spend 30 minutes learning about your business and how we can help.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="booking-layout">
+
+      <!-- Left: Info -->
+      <div class="booking-info">
+        <h3>What to Expect</h3>
+        <p>This is a no-pressure conversation. We'll talk about your business, your goals, and whether we're a good fit — nothing more.</p>
+
+        <div class="booking-info-item">
+          <div class="booking-info-icon">⏱</div>
+          <div>
+            <h4>30 Minutes</h4>
+            <p>A focused, relaxed conversation — no fluff.</p>
+          </div>
+        </div>
+        <div class="booking-info-item">
+          <div class="booking-info-icon">📍</div>
+          <div>
+            <h4>Phone or Video</h4>
+            <p>We'll confirm the format after booking.</p>
+          </div>
+        </div>
+        <div class="booking-info-item">
+          <div class="booking-info-icon">✅</div>
+          <div>
+            <h4>Confirmation Email</h4>
+            <p>You'll receive a confirmation immediately after submitting.</p>
+          </div>
+        </div>
+        <div class="booking-info-item">
+          <div class="booking-info-icon">💰</div>
+          <div>
+            <h4>Completely Free</h4>
+            <p>No cost, no obligation. Just a conversation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div>
+        <div class="form-card" id="booking-form-section">
+          <h3 style="margin-bottom:24px;font-size:1.2rem">Schedule Your Call</h3>
+
+          <div id="booking-msg" class="form-message" style="display:none"></div>
+
+          <form id="booking-form" novalidate>
+
+            <div class="form-group">
+              <label for="service-type">Service Interest</label>
+              <select id="service-type" name="serviceType" required>
+                <option value="">— Select a service —</option>
+                <option value="General Consultation">General Consultation</option>
+                <option value="Starter Package">Starter Package ($500)</option>
+                <option value="Standard Package">Standard Package ($1,000)</option>
+                <option value="Premium Package">Premium Package ($1,500+)</option>
+                <option value="Basic Maintenance Plan">Basic Maintenance ($50/mo)</option>
+                <option value="Standard Maintenance Plan">Standard Maintenance ($100/mo)</option>
+                <option value="Premium Maintenance Plan">Premium Maintenance ($175/mo)</option>
+                <option value="Local SEO Package">Local SEO Package</option>
+                <option value="Logo & Brand Identity">Logo &amp; Brand Identity</option>
+                <option value="Other">Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="booking-date">Preferred Date</label>
+              <input type="date" id="booking-date" name="date" required />
+              <span class="form-error" id="date-note" style="color:var(--gray-400);display:block;margin-top:4px">Available Monday–Saturday</span>
+            </div>
+
+            <div class="slot-container" id="slot-container">
+              <label>Select a Time <span style="color:var(--gray-400);font-weight:400;font-size:0.8rem">(Eastern Time)</span></label>
+              <p class="slot-loading" id="slot-loading">Loading available times…</p>
+              <div class="slot-grid" id="slot-grid"></div>
+              <input type="hidden" id="selected-slot" name="timeSlot" />
+            </div>
+
+            <div class="form-group" style="margin-top:20px">
+              <label for="notes">Tell us about your project <span style="color:var(--gray-400);font-weight:400">(optional)</span></label>
+              <textarea id="notes" name="notes" rows="4" placeholder="Brief description of your business, what you're looking for, any questions you have…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg" id="booking-submit">
+              Request Consultation
+            </button>
+
+            <p style="text-align:center;font-size:0.8rem;color:var(--gray-400);margin-top:12px">
+              You'll receive a confirmation email immediately after submitting.
+            </p>
+          </form>
+        </div>
+
+        <!-- Confirmation screen -->
+        <div class="form-card booking-confirm" id="booking-confirm">
+          <div class="confirm-icon">✅</div>
+          <h3>Booking Request Submitted!</h3>
+          <p style="color:var(--gray-600);margin-bottom:0">We've received your request and sent a confirmation to your email. We'll follow up within 1 business day.</p>
+          <div class="confirm-details" id="confirm-details"></div>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <a href="/dashboard.html" class="btn btn-primary">View My Dashboard</a>
+            <a href="/index.html" class="btn btn-outline-navy">Back to Home</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-bottom" style="border-top:none">
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <p style="margin:0;color:rgba(255,255,255,0.3);font-size:0.8rem">© 2025 Rising Tide Digital LLC · Wilmington, NC</p>
+        <p style="margin:0"><a href="/index.html" style="color:rgba(255,255,255,0.3);font-size:0.8rem">← Back to Home</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/booking.js"></script>
+</body>
+</html>

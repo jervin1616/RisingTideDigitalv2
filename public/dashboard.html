@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard — Rising Tide Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+<body>
+
+  <!-- Mobile header -->
+  <div class="dashboard-mobile-header">
+    <a href="/index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none">
+      <div class="sidebar-logo-mark">RT</div>
+      <span style="color:var(--white);font-family:var(--font-heading);font-size:0.95rem">Rising Tide Digital</span>
+    </a>
+    <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Open sidebar">☰</button>
+  </div>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="dashboard-sidebar">
+      <a href="/index.html" class="sidebar-logo">
+        <div class="sidebar-logo-mark">RT</div>
+        <div>
+          <div class="sidebar-logo-text">Rising Tide Digital</div>
+          <div class="sidebar-logo-sub">Client Portal</div>
+        </div>
+      </a>
+
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-label">My Account</span>
+        <a class="sidebar-link active" data-panel="overview" href="#">
+          <span class="icon">🏠</span> Overview
+        </a>
+        <a class="sidebar-link" data-panel="bookings" href="#">
+          <span class="icon">📅</span> My Bookings
+        </a>
+        <a class="sidebar-link" data-panel="orders" href="#">
+          <span class="icon">🛍</span> My Orders
+        </a>
+        <a class="sidebar-link" data-panel="updates" href="#">
+          <span class="icon">📋</span> Project Updates
+        </a>
+        <a class="sidebar-link" data-panel="account" href="#">
+          <span class="icon">👤</span> Account Info
+        </a>
+
+        <span class="sidebar-section-label" style="margin-top:12px">Quick Links</span>
+        <a class="sidebar-link" href="/booking.html">
+          <span class="icon">➕</span> New Booking
+        </a>
+        <a class="sidebar-link" href="/store.html">
+          <span class="icon">🛒</span> Store
+        </a>
+        <a class="sidebar-link" href="/contact.html">
+          <span class="icon">✉️</span> Contact Us
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="sidebar-avatar">?</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name" id="sidebar-name">Loading…</div>
+            <div class="sidebar-user-role">Client</div>
+          </div>
+          <button class="sidebar-logout-btn logout-btn" title="Logout">⏻</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <div class="dashboard-main">
+      <div class="dashboard-topbar">
+        <div class="dashboard-topbar-left">
+          <h1 id="topbar-title">Overview</h1>
+          <p id="topbar-sub">Welcome back</p>
+        </div>
+        <div style="display:flex;gap:12px">
+          <a href="/booking.html" class="btn btn-primary btn-sm">+ Book a Call</a>
+        </div>
+      </div>
+
+      <div class="dashboard-content">
+
+        <!-- ===== OVERVIEW PANEL ===== -->
+        <div class="admin-panel active" id="panel-overview">
+          <div class="stat-cards" id="overview-stats">
+            <div class="stat-card">
+              <div class="stat-card-label">Upcoming Bookings</div>
+              <div class="stat-card-value" id="stat-bookings">—</div>
+              <div class="stat-card-sub">Active appointments</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-label">Total Orders</div>
+              <div class="stat-card-value" id="stat-orders">—</div>
+              <div class="stat-card-sub">All time</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-label">Project Updates</div>
+              <div class="stat-card-value" id="stat-updates">—</div>
+              <div class="stat-card-sub">From your team</div>
+            </div>
+          </div>
+
+          <!-- Recent bookings preview -->
+          <div class="dashboard-section">
+            <div class="dashboard-section-header">
+              <h2>Upcoming Bookings</h2>
+              <a href="#" class="sidebar-link" data-panel="bookings" style="font-size:0.82rem;color:var(--gold);padding:0">View all →</a>
+            </div>
+            <div class="dashboard-section-body">
+              <div class="booking-list" id="overview-bookings-list">
+                <div class="empty-state"><div class="empty-state-icon">📅</div><p>No upcoming bookings</p><a href="/booking.html" class="btn btn-primary btn-sm">Book a Consultation</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent updates preview -->
+          <div class="dashboard-section">
+            <div class="dashboard-section-header">
+              <h2>Latest Project Updates</h2>
+              <a href="#" class="sidebar-link" data-panel="updates" style="font-size:0.82rem;color:var(--gold);padding:0">View all →</a>
+            </div>
+            <div class="dashboard-section-body">
+              <div class="updates-feed" id="overview-updates-list">
+                <div class="empty-state"><div class="empty-state-icon">📋</div><p>No project updates yet. We'll post here once your project kicks off.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== BOOKINGS PANEL ===== -->
+        <div class="admin-panel" id="panel-bookings">
+          <div class="dashboard-section">
+            <div class="dashboard-section-header">
+              <h2>My Bookings</h2>
+              <a href="/booking.html" class="btn btn-primary btn-sm">+ New Booking</a>
+            </div>
+            <div class="dashboard-section-body">
+              <div class="booking-list" id="bookings-list">
+                <div class="empty-state"><div class="empty-state-icon">📅</div><p>No bookings yet</p><a href="/booking.html" class="btn btn-primary btn-sm">Book a Consultation</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ORDERS PANEL ===== -->
+        <div class="admin-panel" id="panel-orders">
+          <div class="dashboard-section">
+            <div class="dashboard-section-header">
+              <h2>My Orders</h2>
+              <a href="/store.html" class="btn btn-primary btn-sm">Browse Store</a>
+            </div>
+            <div style="overflow-x:auto">
+              <table class="data-table" id="orders-table">
+                <thead>
+                  <tr>
+                    <th>Package</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-tbody">
+                  <tr><td colspan="5" style="text-align:center;padding:40px;color:var(--gray-400)">No orders yet. <a href="/store.html" style="color:var(--gold)">Browse the store →</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== UPDATES PANEL ===== -->
+        <div class="admin-panel" id="panel-updates">
+          <div class="dashboard-section">
+            <div class="dashboard-section-header">
+              <h2>Project Updates</h2>
+            </div>
+            <div class="dashboard-section-body">
+              <div class="updates-feed" id="updates-list">
+                <div class="empty-state"><div class="empty-state-icon">📋</div><p>No project updates yet. Updates will appear here once your project is underway.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ACCOUNT PANEL ===== -->
+        <div class="admin-panel" id="panel-account">
+          <div class="dashboard-section">
+            <div class="dashboard-section-header">
+              <h2>Account Information</h2>
+            </div>
+            <div class="dashboard-section-body">
+              <div class="account-grid" id="account-info-grid">
+                <!-- Filled by JS -->
+              </div>
+              <div class="divider"></div>
+              <h3 style="font-size:1rem;font-family:var(--font-body);margin-bottom:16px">Update Phone Number</h3>
+              <div id="account-msg" class="form-message" style="display:none;max-width:400px"></div>
+              <form id="update-phone-form" style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;max-width:400px">
+                <div class="form-group" style="flex:1;margin:0">
+                  <label for="new-phone">Phone Number</label>
+                  <input type="tel" id="new-phone" placeholder="(910) 555-0100" />
+                </div>
+                <button type="submit" class="btn btn-primary" style="padding:12px 20px;white-space:nowrap">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /dashboard-content -->
+    </div><!-- /dashboard-main -->
+  </div><!-- /dashboard-layout -->
+
+  <script src="/js/main.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const { formatPrice, formatDate, formatTime, timeAgo, showMessage, setLoading } = window.RTD;
+
+    // --- Auth guard ---
+    let user;
+    try {
+      const res = await fetch('/api/auth/me', { credentials: 'include' });
+      if (!res.ok) { window.location.href = '/login.html?redirect=/dashboard.html'; return; }
+      const data = await res.json();
+      user = data.user;
+      if (user.role === 'admin') { window.location.href = '/admin.html'; return; }
+    } catch {
+      window.location.href = '/login.html';
+      return;
+    }
+
+    // Set user info
+    document.getElementById('sidebar-name').textContent = user.name;
+    document.getElementById('sidebar-avatar').textContent = user.name.charAt(0).toUpperCase();
+    document.getElementById('topbar-sub').textContent = `Welcome back, ${user.name.split(' ')[0]}`;
+
+    // --- Sidebar panel navigation ---
+    const panels = document.querySelectorAll('.admin-panel');
+    const links = document.querySelectorAll('.sidebar-link[data-panel]');
+    const topbarTitle = document.getElementById('topbar-title');
+    const panelTitles = { overview: 'Overview', bookings: 'My Bookings', orders: 'My Orders', updates: 'Project Updates', account: 'Account Info' };
+
+    function switchPanel(name) {
+      panels.forEach(p => p.classList.remove('active'));
+      links.forEach(l => l.classList.remove('active'));
+      const panel = document.getElementById(`panel-${name}`);
+      if (panel) panel.classList.add('active');
+      document.querySelectorAll(`.sidebar-link[data-panel="${name}"]`).forEach(l => l.classList.add('active'));
+      topbarTitle.textContent = panelTitles[name] || name;
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchPanel(link.dataset.panel);
+        // Close mobile sidebar
+        document.getElementById('dashboard-sidebar').classList.remove('open');
+        document.getElementById('sidebar-overlay').classList.remove('open');
+      });
+    });
+
+    // Mobile sidebar toggle
+    document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
+      document.getElementById('dashboard-sidebar').classList.add('open');
+      document.getElementById('sidebar-overlay').classList.add('open');
+    });
+    document.getElementById('sidebar-overlay')?.addEventListener('click', () => {
+      document.getElementById('dashboard-sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('open');
+    });
+
+    // Logout
+    document.querySelectorAll('.logout-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
+        window.location.href = '/index.html';
+      });
+    });
+
+    // --- Load data ---
+    async function loadBookings() {
+      try {
+        const res = await fetch('/api/bookings/my', { credentials: 'include' });
+        const { bookings } = await res.json();
+        renderBookings(bookings);
+        const upcoming = bookings.filter(b => b.status !== 'cancelled' && new Date(b.date + 'T' + b.timeSlot) >= new Date());
+        document.getElementById('stat-bookings').textContent = upcoming.length;
+      } catch { /* ignore */ }
+    }
+
+    function renderBookings(bookings) {
+      const overviewEl = document.getElementById('overview-bookings-list');
+      const listEl = document.getElementById('bookings-list');
+      const now = new Date();
+
+      if (!bookings || bookings.length === 0) {
+        const empty = `<div class="empty-state"><div class="empty-state-icon">📅</div><p>No bookings yet</p><a href="/booking.html" class="btn btn-primary btn-sm">Book a Consultation</a></div>`;
+        overviewEl.innerHTML = empty;
+        listEl.innerHTML = empty;
+        return;
+      }
+
+      const html = bookings.map(b => {
+        const bookingDT = new Date(`${b.date}T${b.timeSlot}:00`);
+        const hoursUntil = (bookingDT - now) / (1000 * 60 * 60);
+        const canCancel = b.status !== 'cancelled' && hoursUntil > 24;
+
+        return `
+          <div class="booking-item">
+            <div class="booking-info">
+              <div class="booking-service">${b.serviceType}</div>
+              <div class="booking-datetime">${formatDate(b.date)} at ${formatTime(b.timeSlot)} EST</div>
+            </div>
+            <div class="booking-actions">
+              <span class="badge badge-${b.status}">${b.status}</span>
+              ${canCancel ? `<button class="btn btn-sm" style="border:1px solid #fca5a5;background:#fff5f5;color:#c53030;font-size:0.78rem;padding:6px 12px" onclick="cancelBooking(${b.id})">Cancel</button>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const upcoming = bookings.filter(b => b.status !== 'cancelled').slice(0, 3);
+      overviewEl.innerHTML = upcoming.length > 0
+        ? upcoming.map(b => `
+          <div class="booking-item">
+            <div class="booking-info">
+              <div class="booking-service">${b.serviceType}</div>
+              <div class="booking-datetime">${formatDate(b.date)} at ${formatTime(b.timeSlot)} EST</div>
+            </div>
+            <span class="badge badge-${b.status}">${b.status}</span>
+          </div>
+        `).join('')
+        : `<div class="empty-state"><div class="empty-state-icon">📅</div><p>No upcoming bookings</p><a href="/booking.html" class="btn btn-primary btn-sm">Book a Consultation</a></div>`;
+
+      listEl.innerHTML = html;
+    }
+
+    window.cancelBooking = async (id) => {
+      if (!confirm('Cancel this booking? This cannot be undone.')) return;
+      try {
+        const res = await fetch(`/api/bookings/${id}`, { method: 'DELETE', credentials: 'include' });
+        const data = await res.json();
+        if (res.ok) { loadBookings(); }
+        else { alert(data.error || 'Could not cancel booking.'); }
+      } catch { alert('Connection error.'); }
+    };
+
+    async function loadOrders() {
+      try {
+        const res = await fetch('/api/orders/my', { credentials: 'include' });
+        const { orders } = await res.json();
+        document.getElementById('stat-orders').textContent = orders.length;
+        const tbody = document.getElementById('orders-tbody');
+        if (!orders || orders.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:40px;color:var(--gray-400)">No orders yet. <a href="/store.html" style="color:var(--gold)">Browse the store →</a></td></tr>`;
+          return;
+        }
+        tbody.innerHTML = orders.map(o => `
+          <tr>
+            <td style="font-weight:600;color:var(--navy)">${o.product?.name || '—'}</td>
+            <td>${o.product?.category || '—'}</td>
+            <td style="font-weight:600">${formatPrice(o.amount)}</td>
+            <td><span class="badge badge-${o.status}">${o.status}</span></td>
+            <td>${new Date(o.createdAt).toLocaleDateString('en-US')}</td>
+          </tr>
+        `).join('');
+      } catch { /* ignore */ }
+    }
+
+    async function loadUpdates() {
+      try {
+        const res = await fetch('/api/admin/updates?userId=' + user.id, { credentials: 'include' });
+        // This endpoint is admin-only; regular clients see their own updates differently
+        // Use a dedicated client updates endpoint pattern
+        if (!res.ok) {
+          document.getElementById('stat-updates').textContent = '0';
+          return;
+        }
+        const { updates } = await res.json();
+        document.getElementById('stat-updates').textContent = updates.length;
+        renderUpdates(updates);
+      } catch {
+        document.getElementById('stat-updates').textContent = '0';
+      }
+    }
+
+    async function loadClientUpdates() {
+      // Clients get their updates via a client-accessible route
+      try {
+        const res = await fetch('/api/bookings/my', { credentials: 'include' });
+        // Project updates are accessed indirectly — try fetching from a dedicated client route
+        // For now render placeholder guidance
+        document.getElementById('stat-updates').textContent = '0';
+        const listEl = document.getElementById('updates-list');
+        const overviewEl = document.getElementById('overview-updates-list');
+        listEl.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📋</div><p>Project updates will appear here once your project is underway. Your team will post status updates to keep you informed.</p></div>`;
+        overviewEl.innerHTML = listEl.innerHTML;
+      } catch { /* ignore */ }
+    }
+
+    function renderUpdates(updates) {
+      const listEl = document.getElementById('updates-list');
+      const overviewEl = document.getElementById('overview-updates-list');
+      if (!updates || updates.length === 0) {
+        const empty = `<div class="empty-state"><div class="empty-state-icon">📋</div><p>No project updates yet. We'll post here once your project kicks off.</p></div>`;
+        listEl.innerHTML = empty;
+        overviewEl.innerHTML = empty;
+        return;
+      }
+      const html = updates.map((u, i) => `
+        <div class="update-item">
+          <div class="update-timeline">
+            <div class="update-dot"></div>
+            ${i < updates.length - 1 ? '<div class="update-line"></div>' : ''}
+          </div>
+          <div class="update-content">
+            <div class="update-header">
+              <span class="update-title">${u.title}</span>
+              <span class="badge badge-${u.status === 'Complete' ? 'paid' : u.status === 'Cancelled' ? 'cancelled' : 'pending'}">${u.status}</span>
+              <span class="update-date">${timeAgo(u.createdAt)}</span>
+            </div>
+            <p class="update-message">${u.message}</p>
+          </div>
+        </div>
+      `).join('');
+      listEl.innerHTML = html;
+      overviewEl.innerHTML = updates.slice(0, 2).map((u, i) => `
+        <div class="update-item">
+          <div class="update-timeline">
+            <div class="update-dot"></div>
+            ${i < 1 && updates.length > 1 ? '<div class="update-line"></div>' : ''}
+          </div>
+          <div class="update-content">
+            <div class="update-header">
+              <span class="update-title">${u.title}</span>
+              <span class="badge badge-${u.status === 'Complete' ? 'paid' : 'pending'}">${u.status}</span>
+              <span class="update-date">${timeAgo(u.createdAt)}</span>
+            </div>
+            <p class="update-message">${u.message}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function loadAccountInfo() {
+      const grid = document.getElementById('account-info-grid');
+      grid.innerHTML = `
+        <div class="account-field"><div class="account-field-label">Full Name</div><div class="account-field-value">${user.name}</div></div>
+        <div class="account-field"><div class="account-field-label">Email</div><div class="account-field-value">${user.email}</div></div>
+        <div class="account-field"><div class="account-field-label">Phone</div><div class="account-field-value">${user.phone || '—'}</div></div>
+        <div class="account-field"><div class="account-field-label">Member Since</div><div class="account-field-value">${new Date(user.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</div></div>
+      `;
+      document.getElementById('new-phone').value = user.phone || '';
+    }
+
+    // Update phone form
+    document.getElementById('update-phone-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phone = document.getElementById('new-phone').value.trim();
+      const msgEl = document.getElementById('account-msg');
+      const btn = e.target.querySelector('button');
+      setLoading(btn, true);
+      try {
+        const res = await fetch('/api/auth/profile', {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ phone }),
+        });
+        const data = await res.json();
+        if (res.ok) {
+          user.phone = data.user.phone;
+          showMessage(msgEl, 'success', 'Phone number updated.');
+          loadAccountInfo();
+        } else {
+          showMessage(msgEl, 'error', data.error || 'Update failed.');
+        }
+      } catch {
+        showMessage(msgEl, 'error', 'Connection error.');
+      }
+      setLoading(btn, false, 'Save');
+    });
+
+    // Load all data
+    await Promise.all([loadBookings(), loadOrders(), loadClientUpdates(), loadAccountInfo()]);
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int               @id @default(autoincrement())
+  name          String
+  email         String            @unique
+  passwordHash  String            @map("password_hash")
+  phone         String?
+  role          Role              @default(client)
+  createdAt     DateTime          @default(now()) @map("created_at")
+
+  orders         Order[]
+  bookings       Booking[]
+  projectUpdates ProjectUpdate[]
+
+  @@map("users")
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  price       Int      // stored in cents
+  category    String
+  features    Json     @default("[]")
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  orders Order[]
+
+  @@map("products")
+}
+
+model Order {
+  id              Int         @id @default(autoincrement())
+  userId          Int         @map("user_id")
+  productId       Int         @map("product_id")
+  stripeSessionId String?     @unique @map("stripe_session_id")
+  amount          Int         // stored in cents
+  status          OrderStatus @default(pending)
+  createdAt       DateTime    @default(now()) @map("created_at")
+
+  user    User    @relation(fields: [userId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("orders")
+}
+
+model Booking {
+  id          Int           @id @default(autoincrement())
+  userId      Int           @map("user_id")
+  serviceType String        @map("service_type")
+  date        String        // stored as YYYY-MM-DD string
+  timeSlot    String        @map("time_slot")
+  status      BookingStatus @default(pending)
+  notes       String?
+  createdAt   DateTime      @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("bookings")
+}
+
+model TimeSlot {
+  id        Int     @id @default(autoincrement())
+  dayOfWeek Int     @map("day_of_week") // 1=Mon, 2=Tue, ... 5=Fri
+  time      String  // e.g. "09:00"
+  active    Boolean @default(true)
+
+  @@unique([dayOfWeek, time])
+  @@map("time_slots")
+}
+
+model ContactSubmission {
+  id              Int      @id @default(autoincrement())
+  name            String
+  email           String
+  phone           String?
+  message         String
+  serviceInterest String?  @map("service_interest")
+  read            Boolean  @default(false)
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@map("contact_submissions")
+}
+
+model ProjectUpdate {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  title     String
+  message   String
+  status    String   // e.g. "In Progress", "Revision", "Complete"
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("project_updates")
+}
+
+enum Role {
+  client
+  admin
+}
+
+enum OrderStatus {
+  pending
+  paid
+  failed
+  refunded
+}
+
+enum BookingStatus {
+  pending
+  confirmed
+  cancelled
+}

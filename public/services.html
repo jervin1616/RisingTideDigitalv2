@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Rising Tide Digital</title>
+  <meta name="description" content="Web design packages starting at $500. Starter, Standard, and Premium tiers plus maintenance plans and add-on services." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="/index.html" class="nav-logo">
+        <div class="nav-logo-img">RT</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Rising Tide Digital</span>
+          <span class="nav-logo-tagline">Built for the coast. Designed to grow.</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/store.html">Store</a></li>
+        <li><a href="/booking.html">Book a Call</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/login.html" class="btn btn-outline btn-sm" id="nav-login">Login</a>
+        <a href="/dashboard.html" class="btn btn-primary btn-sm" id="nav-dash" style="display:none">Dashboard</a>
+        <button class="btn btn-outline btn-sm logout-btn" id="nav-logout" style="display:none">Logout</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/store.html">Store</a>
+    <a href="/booking.html">Book a Call</a>
+    <a href="/contact.html">Contact</a>
+    <div class="mobile-nav-actions">
+      <a href="/login.html" class="btn btn-outline btn-sm" id="mobile-login">Login</a>
+      <a href="/dashboard.html" class="btn btn-primary btn-sm" id="mobile-dash" style="display:none">Dashboard</a>
+      <button class="btn btn-outline btn-sm logout-btn" id="mobile-logout" style="display:none">Logout</button>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">What We Offer</span>
+      <h1>Web Design Services</h1>
+      <p>Flat-rate packages built for real businesses. From a clean starter site to a fully custom build — we have a fit for every stage of growth.</p>
+    </div>
+  </section>
+
+  <!-- ===== STARTER ===== -->
+  <section class="service-tier-section" id="starter">
+    <div class="container">
+      <div class="service-tier-inner">
+        <div>
+          <span class="section-label">Tier One</span>
+          <h2>Starter Package</h2>
+          <div class="service-tier-price-tag">
+            <span class="currency">$</span>
+            <span class="amount">500</span>
+            <span class="note">one-time</span>
+          </div>
+          <p>Perfect for small businesses, solo professionals, and startups launching their first professional web presence. Clean, fast, and ready to represent your brand.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> 5-page responsive website</li>
+            <li><span class="check">✓</span> Mobile-first design</li>
+            <li><span class="check">✓</span> Contact form</li>
+            <li><span class="check">✓</span> Google Maps integration</li>
+            <li><span class="check">✓</span> Basic SEO setup</li>
+            <li><span class="check">✓</span> Social media links</li>
+            <li><span class="check">✓</span> 1 round of revisions</li>
+            <li><span class="check">✓</span> 30-day post-launch support</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="/booking.html?service=Starter+Package" class="btn btn-primary">Book a Consultation</a>
+            <a href="/store.html" class="btn btn-outline-navy">Purchase Online</a>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;margin-bottom:16px">
+            <div style="width:60%;height:8px;background:var(--gold);border-radius:4px;margin-bottom:12px;opacity:0.7"></div>
+            <div style="width:90%;height:6px;background:rgba(255,255,255,0.15);border-radius:4px;margin-bottom:8px"></div>
+            <div style="width:75%;height:6px;background:rgba(255,255,255,0.1);border-radius:4px"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:16px;aspect-ratio:4/3"></div>
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:16px;aspect-ratio:4/3"></div>
+          </div>
+          <p style="color:var(--gold);font-size:0.8rem;margin-top:20px;text-align:center">Clean, professional, built to convert</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STANDARD ===== -->
+  <section class="service-tier-section" id="standard" style="background:var(--gray-50)">
+    <div class="container">
+      <div class="service-tier-inner reverse">
+        <div>
+          <span class="section-label">Tier Two · Most Popular</span>
+          <h2>Standard Package</h2>
+          <div class="service-tier-price-tag">
+            <span class="currency">$</span>
+            <span class="amount">1,000</span>
+            <span class="note">one-time</span>
+          </div>
+          <p>Ideal for growing businesses that need a robust website with more pages, a blog, and tighter integration with your marketing tools.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Up to 10 pages</li>
+            <li><span class="check">✓</span> Custom design system</li>
+            <li><span class="check">✓</span> Blog or news section</li>
+            <li><span class="check">✓</span> Email newsletter integration</li>
+            <li><span class="check">✓</span> Google Analytics setup</li>
+            <li><span class="check">✓</span> On-page SEO optimization</li>
+            <li><span class="check">✓</span> Open Graph / social tags</li>
+            <li><span class="check">✓</span> 2 rounds of revisions</li>
+            <li><span class="check">✓</span> 60-day post-launch support</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="/booking.html?service=Standard+Package" class="btn btn-primary">Book a Consultation</a>
+            <a href="/store.html" class="btn btn-outline-navy">Purchase Online</a>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:6px;height:60px"></div>
+            <div style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.2);border-radius:6px;height:60px"></div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:6px;height:60px"></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:16px;margin-bottom:12px">
+            <div style="width:40%;height:6px;background:var(--gold);border-radius:4px;opacity:0.6;margin-bottom:10px"></div>
+            <div style="width:85%;height:5px;background:rgba(255,255,255,0.12);border-radius:4px;margin-bottom:6px"></div>
+            <div style="width:70%;height:5px;background:rgba(255,255,255,0.08);border-radius:4px"></div>
+          </div>
+          <p style="color:var(--gold);font-size:0.8rem;text-align:center">Designed for visibility and engagement</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PREMIUM ===== -->
+  <section class="service-tier-section" id="premium">
+    <div class="container">
+      <div class="service-tier-inner">
+        <div>
+          <span class="section-label">Tier Three</span>
+          <h2>Premium Package</h2>
+          <div class="service-tier-price-tag">
+            <span class="currency">$</span>
+            <span class="amount">1,500+</span>
+            <span class="note">custom quote</span>
+          </div>
+          <p>Full-featured solution for established businesses requiring advanced functionality, custom development, or e-commerce integration. Price varies by scope.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Unlimited pages</li>
+            <li><span class="check">✓</span> Custom UI/UX design</li>
+            <li><span class="check">✓</span> E-commerce or booking</li>
+            <li><span class="check">✓</span> CMS integration</li>
+            <li><span class="check">✓</span> Advanced SEO strategy</li>
+            <li><span class="check">✓</span> Performance optimization</li>
+            <li><span class="check">✓</span> WCAG 2.1 accessibility</li>
+            <li><span class="check">✓</span> Custom forms & automations</li>
+            <li><span class="check">✓</span> Unlimited revisions</li>
+            <li><span class="check">✓</span> 90-day priority support</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="/booking.html?service=Premium+Package" class="btn btn-primary">Book a Consultation</a>
+            <a href="/contact.html" class="btn btn-outline-navy">Request Custom Quote</a>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.15);border-radius:12px;padding:20px;margin-bottom:16px">
+            <div style="width:50%;height:10px;background:var(--gold);border-radius:5px;margin-bottom:14px;opacity:0.8"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+              <div style="height:40px;background:rgba(255,255,255,0.05);border-radius:6px"></div>
+              <div style="height:40px;background:rgba(255,255,255,0.05);border-radius:6px"></div>
+              <div style="height:40px;background:rgba(255,255,255,0.05);border-radius:6px"></div>
+              <div style="height:40px;background:rgba(201,168,76,0.1);border-radius:6px;border:1px solid rgba(201,168,76,0.2)"></div>
+            </div>
+            <div style="width:100%;height:36px;background:var(--gold);border-radius:8px;opacity:0.7"></div>
+          </div>
+          <p style="color:var(--gold);font-size:0.8rem;text-align:center">Built to scale with your business</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAINTENANCE PLANS ===== -->
+  <section style="background:var(--navy);padding:80px 0" id="maintenance">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Keep It Running</span>
+        <h2 style="color:var(--white)">Maintenance Plans</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.6);margin:0 auto 48px">Your website is an investment. Protect it with proactive monthly maintenance.</p>
+      </div>
+      <div class="tier-grid">
+        <div class="tier-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1)">
+          <h3 class="tier-name" style="color:var(--white)">Basic</h3>
+          <div class="tier-price">$50<span style="font-size:1rem;color:rgba(255,255,255,0.4)">/mo</span></div>
+          <p class="tier-desc" style="color:rgba(255,255,255,0.6)">Essential maintenance and monitoring for your site.</p>
+          <ul class="tier-features">
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Monthly updates</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Weekly backups</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Uptime monitoring</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Security scans</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> 1 hr content updates/mo</li>
+          </ul>
+          <a href="/booking.html?service=Basic+Maintenance+Plan" class="btn btn-outline btn-full">Get Started</a>
+        </div>
+        <div class="tier-card featured" style="background:rgba(255,255,255,0.08);border-color:var(--gold)">
+          <span class="tier-badge">Best Value</span>
+          <h3 class="tier-name" style="color:var(--white)">Standard</h3>
+          <div class="tier-price">$100<span style="font-size:1rem;color:rgba(255,255,255,0.4)">/mo</span></div>
+          <p class="tier-desc" style="color:rgba(255,255,255,0.6)">Full maintenance plus performance monitoring and priority support.</p>
+          <ul class="tier-features">
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Everything in Basic</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Daily backups</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Monthly performance report</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> 3 hrs content updates/mo</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Priority email support</li>
+          </ul>
+          <a href="/booking.html?service=Standard+Maintenance+Plan" class="btn btn-primary btn-full">Get Started</a>
+        </div>
+        <div class="tier-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1)">
+          <h3 class="tier-name" style="color:var(--white)">Premium</h3>
+          <div class="tier-price">$175<span style="font-size:1rem;color:rgba(255,255,255,0.4)">/mo</span></div>
+          <p class="tier-desc" style="color:rgba(255,255,255,0.6)">Enterprise-grade care with hands-on monthly strategy and same-day emergency response.</p>
+          <ul class="tier-features">
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Everything in Standard</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Hourly backups</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Monthly strategy call</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> 6 hrs content updates/mo</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Same-day emergency response</li>
+            <li class="tier-feature" style="color:rgba(255,255,255,0.7)"><span class="check">✓</span> Quarterly SEO review</li>
+          </ul>
+          <a href="/booking.html?service=Premium+Maintenance+Plan" class="btn btn-outline btn-full">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADD-ONS ===== -->
+  <section class="add-ons-section" id="addons">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Extras</span>
+        <h2>Add-On Services</h2>
+        <p class="section-subtitle">Enhance your package with targeted services to strengthen your brand and online reach.</p>
+      </div>
+      <div class="addon-grid">
+        <div class="addon-card">
+          <div class="addon-icon">🔍</div>
+          <h3>Local SEO Package</h3>
+          <div class="addon-price">$750</div>
+          <p class="addon-desc">Get found by customers in Wilmington and across the Cape Fear region — Google Business Profile, citations, and keyword strategy.</p>
+          <a href="/booking.html?service=Local+SEO+Package" class="btn btn-outline-navy btn-sm" style="margin-top:16px">Add to Project</a>
+        </div>
+        <div class="addon-card">
+          <div class="addon-icon">🎨</div>
+          <h3>Logo & Brand Identity</h3>
+          <div class="addon-price">$400</div>
+          <p class="addon-desc">Custom logo design with 3 concepts, color palette, typography pairing, and a full brand style guide PDF delivered in all formats.</p>
+          <a href="/booking.html?service=Logo+%26+Brand+Identity" class="btn btn-outline-navy btn-sm" style="margin-top:16px">Add to Project</a>
+        </div>
+        <div class="addon-card">
+          <div class="addon-icon">📝</div>
+          <h3>Copywriting</h3>
+          <div class="addon-price">Custom</div>
+          <p class="addon-desc">Professional, conversion-focused copy for your website pages written by someone who understands the coastal NC market and your audience.</p>
+          <a href="/contact.html" class="btn btn-outline-navy btn-sm" style="margin-top:16px">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Not sure which package is right for you?</h2>
+      <p>Book a free 30-minute call and we'll figure it out together. No pressure, no commitment.</p>
+      <div class="cta-buttons">
+        <a href="/booking.html" class="btn btn-primary btn-lg">Schedule a Free Call</a>
+        <a href="/contact.html" class="btn btn-outline btn-lg">Send a Message</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/index.html" class="nav-logo" style="display:inline-flex">
+            <div class="nav-logo-img">RT</div>
+            <div class="nav-logo-text">
+              <span class="nav-logo-name">Rising Tide Digital</span>
+              <span class="nav-logo-tagline">Built for the coast.</span>
+            </div>
+          </a>
+          <p>A Wilmington, NC web design agency helping local businesses grow their digital presence.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#starter">Starter Package</a></li>
+            <li><a href="#standard">Standard Package</a></li>
+            <li><a href="#premium">Premium Package</a></li>
+            <li><a href="#addons">Add-Ons</a></li>
+            <li><a href="#maintenance">Maintenance Plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/store.html">Store</a></li>
+            <li><a href="/booking.html">Book a Call</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>Contact</h4>
+          <p>📍 Wilmington, NC 28401</p>
+          <p>✉️ <a href="mailto:hello@risingtidedigital.com">hello@risingtidedigital.com</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <p style="margin:0;color:rgba(255,255,255,0.3);font-size:0.8rem">© 2025 Rising Tide Digital LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

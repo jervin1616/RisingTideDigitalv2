@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — Rising Tide Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    body { background: var(--gray-50); min-height: 100vh; display: flex; flex-direction: column; }
+
+    .auth-page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .auth-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 32px;
+      text-decoration: none;
+    }
+
+    .auth-logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--gold);
+    }
+
+    .auth-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .auth-logo-name { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .auth-logo-tagline { font-size: 0.68rem; color: var(--gold); letter-spacing: 0.04em; }
+
+    .auth-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .auth-card h1 { font-size: 1.5rem; margin-bottom: 6px; }
+    .auth-card > p { color: var(--gray-400); font-size: 0.9rem; margin-bottom: 28px; }
+
+    .auth-footer { text-align: center; margin-top: 20px; font-size: 0.875rem; color: var(--gray-400); }
+    .auth-footer a { color: var(--navy); font-weight: 600; }
+
+    .password-hint {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-page">
+    <div class="auth-container">
+
+      <a href="/index.html" class="auth-logo">
+        <div class="auth-logo-mark">RT</div>
+        <div class="auth-logo-text">
+          <span class="auth-logo-name">Rising Tide Digital</span>
+          <span class="auth-logo-tagline">Built for the coast. Designed to grow.</span>
+        </div>
+      </a>
+
+      <div class="auth-card">
+        <h1>Create your account</h1>
+        <p>Book consultations, track orders, and manage your project in one place.</p>
+
+        <div id="form-msg" class="form-message" style="display:none"></div>
+
+        <form id="register-form" novalidate>
+
+          <div class="form-group">
+            <label for="name">Full Name <span style="color:#e53e3e">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+            <span class="form-error" id="name-error"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address <span style="color:#e53e3e">*</span></label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
+              <span class="form-error" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone <span style="color:var(--gray-400);font-weight:400">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="(910) 555-0100" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password">Password <span style="color:#e53e3e">*</span></label>
+              <input type="password" id="password" name="password" placeholder="Min. 8 characters" autocomplete="new-password" required />
+              <span class="form-error" id="password-error"></span>
+              <span class="password-hint">At least 8 characters</span>
+            </div>
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password <span style="color:#e53e3e">*</span></label>
+              <input type="password" id="confirm-password" name="confirmPassword" placeholder="Repeat password" autocomplete="new-password" required />
+              <span class="form-error" id="confirm-password-error"></span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" style="margin-top:8px;padding:14px;font-size:1rem">
+            Create Account
+          </button>
+
+          <p style="text-align:center;font-size:0.78rem;color:var(--gray-400);margin-top:14px;line-height:1.5">
+            By creating an account you agree to our terms of service and privacy policy.
+          </p>
+
+        </form>
+      </div>
+
+      <p class="auth-footer">
+        Already have an account? <a href="/login.html">Sign in</a>
+      </p>
+
+      <p style="text-align:center;margin-top:20px">
+        <a href="/index.html" style="font-size:0.8rem;color:var(--gray-400)">← Back to website</a>
+      </p>
+
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

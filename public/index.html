@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rising Tide Digital — Built for the Coast. Designed to Grow.</title>
+  <meta name="description" content="Rising Tide Digital LLC is a Wilmington, NC web design agency. We build professional, fast, and beautiful websites for local businesses." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="/index.html" class="nav-logo">
+        <div class="nav-logo-img">RT</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Rising Tide Digital</span>
+          <span class="nav-logo-tagline">Built for the coast. Designed to grow.</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/store.html">Store</a></li>
+        <li><a href="/booking.html">Book a Call</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/login.html" class="btn btn-outline btn-sm" id="nav-login">Login</a>
+        <a href="/dashboard.html" class="btn btn-primary btn-sm" id="nav-dash" style="display:none">Dashboard</a>
+        <button class="btn btn-outline btn-sm logout-btn" id="nav-logout" style="display:none">Logout</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/store.html">Store</a>
+    <a href="/booking.html">Book a Call</a>
+    <a href="/contact.html">Contact</a>
+    <div class="mobile-nav-actions">
+      <a href="/login.html" class="btn btn-outline btn-sm" id="mobile-login">Login</a>
+      <a href="/dashboard.html" class="btn btn-primary btn-sm" id="mobile-dash" style="display:none">Dashboard</a>
+      <button class="btn btn-outline btn-sm logout-btn" id="mobile-logout" style="display:none">Logout</button>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span>📍 Wilmington, NC</span>
+          </div>
+          <h1>Websites Built for<br><em>Local Businesses</em><br>That Mean Business</h1>
+          <p class="hero-sub">
+            Rising Tide Digital crafts professional, high-performing websites for Wilmington and Cape Fear coast businesses — from concept to launch and beyond.
+          </p>
+          <div class="hero-ctas">
+            <a href="/booking.html" class="btn btn-primary btn-lg">Book a Free Consultation</a>
+            <a href="/services.html" class="btn btn-outline btn-lg">View Services</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <div class="hero-main-card">
+              <div class="hero-card-badge">Standard Package</div>
+              <div class="hero-card-title">Your New Website</div>
+              <div class="hero-card-price">$1,000 <span>one-time</span></div>
+              <ul class="hero-card-features">
+                <li class="hero-card-feature">Custom responsive design</li>
+                <li class="hero-card-feature">Up to 10 pages</li>
+                <li class="hero-card-feature">On-page SEO setup</li>
+                <li class="hero-card-feature">60-day support included</li>
+              </ul>
+              <a href="/booking.html" class="btn btn-primary btn-full">Get Started Today</a>
+            </div>
+            <div class="hero-stat-cards">
+              <div class="hero-stat">
+                <div class="hero-stat-num">100%</div>
+                <div class="hero-stat-label">Local</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-num">3</div>
+                <div class="hero-stat-label">Packages</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES OVERVIEW ===== -->
+  <section class="services-overview">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Packages</span>
+        <h2 class="section-title">Web Design Packages</h2>
+        <p class="section-subtitle">Transparent, flat-rate pricing. No surprises. Pick the package that fits your business.</p>
+      </div>
+      <div class="tier-grid" id="tier-grid">
+        <!-- Loaded dynamically by main.js -->
+        <div class="tier-card tier-skeleton">
+          <div class="skeleton-line medium"></div>
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-line medium"></div>
+          <div class="skeleton-line"></div>
+        </div>
+        <div class="tier-card tier-skeleton">
+          <div class="skeleton-line medium"></div>
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-line medium"></div>
+          <div class="skeleton-line"></div>
+        </div>
+        <div class="tier-card tier-skeleton">
+          <div class="skeleton-line medium"></div>
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-line medium"></div>
+          <div class="skeleton-line"></div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:40px">
+        <a href="/services.html" class="btn btn-outline-navy">See Full Service Details →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">The Process</span>
+        <h2 class="section-title">Simple. Transparent. Effective.</h2>
+        <p class="section-subtitle">We keep things straightforward so you can focus on running your business.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Consult</h3>
+          <p>We start with a free 30-minute call to understand your business, goals, and timeline. No sales pressure — just honest conversation.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Build</h3>
+          <p>We design and develop your site with your brand in mind. You'll get progress updates and have opportunities to give feedback throughout.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Launch</h3>
+          <p>We handle the technical side — hosting setup, domain connection, final testing — then hand you the keys to your new digital home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section class="portfolio">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Our Work</span>
+        <h2 class="section-title">Recent Projects</h2>
+        <p class="section-subtitle">We build for businesses across the Cape Fear region — from restaurants to real estate to retail.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <!-- Replace with actual project screenshot -->
+            <span>Project Screenshot</span>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Restaurant</span>
+            <h3>Coastal Kitchen Co.</h3>
+            <p>Full restaurant website with online menu, reservation form, and local SEO optimization.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <span>Project Screenshot</span>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Real Estate</span>
+            <h3>Wrightsville Properties</h3>
+            <p>Lead generation site with property listings integration and custom contact workflows.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <span>Project Screenshot</span>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Retail</span>
+            <h3>Sea & Sand Boutique</h3>
+            <p>E-commerce enabled boutique site with product catalog, cart, and Instagram feed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">What Clients Say</span>
+        <h2 class="section-title" style="color:var(--white)">Real Results from Real Businesses</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.6);margin-left:auto;margin-right:auto">We measure success by the growth of the businesses we serve.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Rising Tide completely transformed our online presence. We saw a 40% increase in reservation inquiries within the first month after launch."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-name">Marcus T.</div>
+              <div class="testimonial-biz">Coastal Kitchen Co. — Wilmington, NC</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"They listened to what we actually needed and delivered it on time. The whole process was smooth from first call to launch day."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Sarah R.</div>
+              <div class="testimonial-biz">Wrightsville Properties — Wrightsville Beach, NC</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Local team, professional results. They know the Cape Fear market and it shows in how they approach design and messaging."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">J</div>
+            <div>
+              <div class="testimonial-name">Jamie L.</div>
+              <div class="testimonial-biz">Sea & Sand Boutique — Carolina Beach, NC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BAND ===== -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ready to grow your digital presence?</h2>
+      <p>Book a free 30-minute consultation. No commitment, no pressure — just a real conversation about your business.</p>
+      <div class="cta-buttons">
+        <a href="/booking.html" class="btn btn-primary btn-lg">Book a Free Call</a>
+        <a href="/contact.html" class="btn btn-outline btn-lg">Send a Message</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/index.html" class="nav-logo" style="display:inline-flex">
+            <div class="nav-logo-img">RT</div>
+            <div class="nav-logo-text">
+              <span class="nav-logo-name">Rising Tide Digital</span>
+              <span class="nav-logo-tagline">Built for the coast.</span>
+            </div>
+          </a>
+          <p>A Wilmington, NC web design agency helping local businesses grow their digital presence — with honesty, care, and craft.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">in</a>
+            <a href="#" aria-label="LinkedIn">li</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services.html#starter">Starter Package</a></li>
+            <li><a href="/services.html#standard">Standard Package</a></li>
+            <li><a href="/services.html#premium">Premium Package</a></li>
+            <li><a href="/services.html#addons">Add-Ons</a></li>
+            <li><a href="/services.html#maintenance">Maintenance Plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/store.html">Store</a></li>
+            <li><a href="/booking.html">Book a Call</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/login.html">Client Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>Contact</h4>
+          <p>📍 Wilmington, NC 28401</p>
+          <p>✉️ <a href="mailto:hello@risingtidedigital.com">hello@risingtidedigital.com</a></p>
+          <p style="margin-top:16px;font-size:0.8rem;color:rgba(255,255,255,0.3);">Mon–Fri · 9am–5pm EST</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <p style="margin:0;color:rgba(255,255,255,0.3);font-size:0.8rem">© 2025 Rising Tide Digital LLC. All rights reserved.</p>
+        <p style="margin:0;color:rgba(255,255,255,0.2);font-size:0.75rem">Wilmington, NC · Built with ☀️ on the Carolina coast</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

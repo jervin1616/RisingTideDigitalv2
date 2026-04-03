@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store — Rising Tide Digital</title>
+  <meta name="description" content="Purchase web design packages and add-on services from Rising Tide Digital LLC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    .store-hero { background: var(--navy); padding: 64px 0 56px; }
+    .store-hero h1 { color: var(--white); margin-bottom: 12px; }
+    .store-hero p { color: rgba(255,255,255,0.7); max-width: 540px; }
+
+    .store-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .store-filter-btn {
+      padding: 8px 20px;
+      border-radius: 100px;
+      border: 1.5px solid var(--gray-200);
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .store-filter-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .store-filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+    }
+
+    .product-card:hover {
+      border-color: var(--gold);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .product-category-tag {
+      display: inline-block;
+      background: var(--gray-100);
+      color: var(--gray-600);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .product-name {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .product-price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      font-family: var(--font-body);
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .product-desc {
+      font-size: 0.875rem;
+      margin-bottom: 20px;
+    }
+
+    .product-features {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .product-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--gray-600);
+    }
+
+    .product-features .check { color: var(--gold); flex-shrink: 0; }
+
+    .store-loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 64px;
+      color: var(--gray-400);
+      font-size: 0.95rem;
+    }
+
+    .success-banner {
+      background: #f0fff4;
+      border: 1px solid #9ae6b4;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      display: none;
+    }
+
+    .cancel-banner {
+      background: #fff5f5;
+      border: 1px solid #feb2b2;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      display: none;
+    }
+
+    .success-banner h3 { color: #276749; margin-bottom: 4px; }
+    .success-banner p { color: #276749; font-size: 0.9rem; margin: 0; }
+    .cancel-banner h3 { color: #c53030; margin-bottom: 4px; }
+    .cancel-banner p { color: #c53030; font-size: 0.9rem; margin: 0; }
+
+    .login-notice {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .login-notice a { color: var(--gold); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="/index.html" class="nav-logo">
+        <div class="nav-logo-img">RT</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Rising Tide Digital</span>
+          <span class="nav-logo-tagline">Built for the coast. Designed to grow.</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/store.html">Store</a></li>
+        <li><a href="/booking.html">Book a Call</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/login.html" class="btn btn-outline btn-sm" id="nav-login">Login</a>
+        <a href="/dashboard.html" class="btn btn-primary btn-sm" id="nav-dash" style="display:none">Dashboard</a>
+        <button class="btn btn-outline btn-sm logout-btn" id="nav-logout" style="display:none">Logout</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/store.html">Store</a>
+    <a href="/booking.html">Book a Call</a>
+    <a href="/contact.html">Contact</a>
+    <div class="mobile-nav-actions">
+      <a href="/login.html" class="btn btn-outline btn-sm" id="mobile-login">Login</a>
+      <a href="/dashboard.html" class="btn btn-primary btn-sm" id="mobile-dash" style="display:none">Dashboard</a>
+      <button class="btn btn-outline btn-sm logout-btn" id="mobile-logout" style="display:none">Logout</button>
+    </div>
+  </div>
+
+  <section class="store-hero">
+    <div class="container">
+      <span class="section-label">Online Store</span>
+      <h1>Purchase a Package</h1>
+      <p>Browse our packages and add-ons. Purchase securely online and we'll reach out to schedule your kickoff call.</p>
+    </div>
+  </section>
+
+  <section style="padding: 64px 0">
+    <div class="container">
+
+      <!-- Success / Cancel banners -->
+      <div class="success-banner" id="success-banner">
+        <h3>🎉 Payment Successful!</h3>
+        <p>Thank you for your purchase of <strong id="success-product-name">your package</strong>. We'll be in touch within 1 business day to schedule your kickoff call. Check your email for a receipt.</p>
+      </div>
+
+      <div class="cancel-banner" id="cancel-banner">
+        <h3>Checkout Cancelled</h3>
+        <p>Your payment was not processed. No charges were made. Feel free to try again or <a href="/contact.html" style="color:#c53030;font-weight:600">contact us</a> with questions.</p>
+      </div>
+
+      <!-- Login notice (shown by JS if not authenticated) -->
+      <div class="login-notice" id="login-notice" style="display:none">
+        <span>💡 You'll need to be logged in to complete a purchase.</span>
+        <a href="/login.html?redirect=/store.html">Login or Create an Account →</a>
+      </div>
+
+      <!-- Filters -->
+      <div class="store-filters">
+        <button class="store-filter-btn active" data-category="all">All Packages</button>
+        <button class="store-filter-btn" data-category="Web Design">Web Design</button>
+        <button class="store-filter-btn" data-category="Maintenance">Maintenance</button>
+        <button class="store-filter-btn" data-category="Add-Ons">Add-Ons</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid" id="product-grid">
+        <div class="store-loading">Loading packages…</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-band" style="padding:60px 0">
+    <div class="container" style="text-align:center">
+      <h2>Prefer to talk first?</h2>
+      <p style="color:rgba(255,255,255,0.7);margin-bottom:32px">Book a free 30-minute consultation before committing to any package.</p>
+      <a href="/booking.html" class="btn btn-primary btn-lg">Book a Free Call</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom" style="border-top:none">
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <p style="margin:0;color:rgba(255,255,255,0.3);font-size:0.8rem">© 2025 Rising Tide Digital LLC · Wilmington, NC</p>
+        <p style="margin:0"><a href="/index.html" style="color:rgba(255,255,255,0.3);font-size:0.8rem">← Back to Home</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/store.js"></script>
+  <script>
+    // Show login notice if not authenticated
+    fetch('/api/auth/me', { credentials: 'include' }).then(res => {
+      if (!res.ok) {
+        document.getElementById('login-notice').style.display = 'flex';
+      }
+    });
+  </script>
+</body>
+</html>

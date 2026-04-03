@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Rising Tide Digital</title>
+  <meta name="description" content="Reach out to Rising Tide Digital LLC. We'd love to hear about your project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="/index.html" class="nav-logo">
+        <div class="nav-logo-img">RT</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Rising Tide Digital</span>
+          <span class="nav-logo-tagline">Built for the coast. Designed to grow.</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/store.html">Store</a></li>
+        <li><a href="/booking.html">Book a Call</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/login.html" class="btn btn-outline btn-sm" id="nav-login">Login</a>
+        <a href="/dashboard.html" class="btn btn-primary btn-sm" id="nav-dash" style="display:none">Dashboard</a>
+        <button class="btn btn-outline btn-sm logout-btn" id="nav-logout" style="display:none">Logout</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/store.html">Store</a>
+    <a href="/booking.html">Book a Call</a>
+    <a href="/contact.html">Contact</a>
+    <div class="mobile-nav-actions">
+      <a href="/login.html" class="btn btn-outline btn-sm" id="mobile-login">Login</a>
+      <a href="/dashboard.html" class="btn btn-primary btn-sm" id="mobile-dash" style="display:none">Dashboard</a>
+      <button class="btn btn-outline btn-sm logout-btn" id="mobile-logout" style="display:none">Logout</button>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Say Hello</span>
+      <h1>Get in Touch</h1>
+      <p>Have a question about our services? Ready to start a project? We'd love to hear from you. We typically respond within 1–2 business days.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section style="padding:72px 0">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Info side -->
+        <div class="contact-info">
+          <h2>Let's Talk About<br>Your Business</h2>
+          <p style="margin-top:16px">Whether you're just exploring options or ready to get started, we're happy to answer questions and point you in the right direction — no strings attached.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+              <h4>Location</h4>
+              <p>Wilmington, NC 28401<br>Serving the Cape Fear region</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:hello@risingtidedigital.com" style="color:var(--gold)">hello@risingtidedigital.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">⏰</div>
+            <div>
+              <h4>Response Time</h4>
+              <p>Monday–Friday · 9am–5pm EST<br>We reply within 1–2 business days</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📅</div>
+            <div>
+              <h4>Prefer to Schedule?</h4>
+              <p><a href="/booking.html" style="color:var(--gold);font-weight:600">Book a free 30-minute call →</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form side -->
+        <div>
+          <div class="form-card">
+            <h3 style="margin-bottom:8px;font-size:1.2rem">Send a Message</h3>
+            <p style="font-size:0.875rem;margin-bottom:28px">We'll reply to your email within 1–2 business days.</p>
+
+            <div id="contact-msg" class="form-message" style="display:none"></div>
+
+            <form id="contact-form" novalidate>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name <span style="color:#e53e3e">*</span></label>
+                  <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+                  <span class="form-error" id="name-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address <span style="color:#e53e3e">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+                  <span class="form-error" id="email-error"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone <span style="color:var(--gray-400);font-weight:400">(optional)</span></label>
+                  <input type="tel" id="phone" name="phone" placeholder="(910) 555-0100" />
+                </div>
+                <div class="form-group">
+                  <label for="service-interest">Service Interest</label>
+                  <select id="service-interest" name="serviceInterest">
+                    <option value="">— Not sure yet —</option>
+                    <option value="Starter Package">Starter Package ($500)</option>
+                    <option value="Standard Package">Standard Package ($1,000)</option>
+                    <option value="Premium Package">Premium Package ($1,500+)</option>
+                    <option value="Maintenance Plan">Maintenance Plan</option>
+                    <option value="Local SEO">Local SEO</option>
+                    <option value="Logo Design">Logo Design</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message <span style="color:#e53e3e">*</span></label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us about your business, your project, or any questions you have…" required></textarea>
+                <span class="form-error" id="message-error"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full" id="contact-submit" style="font-size:1rem;padding:15px">
+                Send Message
+              </button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band" style="padding:60px 0">
+    <div class="container" style="text-align:center">
+      <h2>Ready to get started now?</h2>
+      <p style="color:rgba(255,255,255,0.7);margin-bottom:32px">Skip the message and book a free consultation directly.</p>
+      <a href="/booking.html" class="btn btn-primary btn-lg">Book a Free Call</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom" style="border-top:none">
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <p style="margin:0;color:rgba(255,255,255,0.3);font-size:0.8rem">© 2025 Rising Tide Digital LLC · Wilmington, NC</p>
+        <p style="margin:0"><a href="/index.html" style="color:rgba(255,255,255,0.3);font-size:0.8rem">← Back to Home</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contact-form');
+      const msgEl = document.getElementById('contact-msg');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Clear previous errors
+        document.querySelectorAll('.form-error').forEach(el => { el.textContent = ''; });
+        msgEl.style.display = 'none';
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const serviceInterest = document.getElementById('service-interest').value;
+
+        let valid = true;
+        if (!name) { document.getElementById('name-error').textContent = 'Name is required'; valid = false; }
+        if (!email) { document.getElementById('email-error').textContent = 'Email is required'; valid = false; }
+        if (!message) { document.getElementById('message-error').textContent = 'Message is required'; valid = false; }
+        if (!valid) return;
+
+        const submitBtn = document.getElementById('contact-submit');
+        window.RTD.setLoading(submitBtn, true);
+
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, phone, message, serviceInterest }),
+          });
+          const data = await res.json();
+
+          if (res.ok) {
+            window.RTD.showMessage(msgEl, 'success', data.message || "Message sent! We'll be in touch soon.");
+            form.reset();
+          } else {
+            window.RTD.showMessage(msgEl, 'error', data.error || 'Something went wrong. Please try again.');
+          }
+        } catch {
+          window.RTD.showMessage(msgEl, 'error', 'Connection error. Please try again.');
+        }
+
+        window.RTD.setLoading(submitBtn, false, 'Send Message');
+      });
+    });
+  </script>
+</body>
+</html>
