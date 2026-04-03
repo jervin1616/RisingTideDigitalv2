@@ -4,7 +4,7 @@
   "description": "Rising Tide Digital LLC - Full Stack Web Application",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npx prisma migrate deploy && node prisma/seed.js && node server.js",
     "dev": "nodemon server.js",
     "seed": "node prisma/seed.js"
   },
